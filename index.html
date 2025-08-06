@@ -28,87 +28,55 @@
             flex-direction: column;
         }
         
+        .container {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+        }
+        
         .header {
             background-color: var(--header-color);
-            padding: 10px 15px;
+            padding: 15px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
         .header h1 {
             margin: 0;
-            font-size: 18px;
             color: var(--accent-color);
-            font-weight: bold;
+            font-size: 18px;
         }
         
-        .btn {
+        button {
             background-color: var(--button-color);
             color: var(--text-color);
             border: none;
             padding: 8px 12px;
-            border-radius: 2px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s;
         }
         
-        .btn:hover {
+        button:hover {
             background-color: var(--highlight-color);
-        }
-        
-        .btn-accent {
-            background-color: var(--accent-color);
         }
         
         .chat-list {
             flex: 1;
             overflow-y: auto;
-            padding: 5px;
+            padding: 10px;
         }
         
         .chat-item {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--highlight-color);
+            padding: 12px;
+            margin-bottom: 8px;
+            background-color: var(--header-color);
+            border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.2s;
         }
         
         .chat-item:hover {
             background-color: var(--highlight-color);
-        }
-        
-        .chat-item h3 {
-            margin: 0 0 5px 0;
-            font-size: 16px;
-        }
-        
-        .chat-item p {
-            margin: 0;
-            color: var(--sender-color);
-            font-size: 14px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .input-area {
-            display: flex;
-            padding: 10px;
-            background-color: var(--header-color);
-        }
-        
-        .input-area input {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 2px;
-            background-color: #37474F;
-            color: var(--text-color);
-            font-size: 14px;
-            margin-right: 10px;
         }
         
         .messages-container {
@@ -118,446 +86,312 @@
         }
         
         .message {
-            max-width: 70%;
-            margin-bottom: 15px;
-            padding: 10px 15px;
-            border-radius: 18px;
-            position: relative;
+            margin-bottom: 12px;
+            max-width: 80%;
+            padding: 8px 12px;
+            border-radius: 8px;
             word-wrap: break-word;
         }
         
         .message-sent {
             background-color: var(--message-sent);
             margin-left: auto;
-            border-bottom-right-radius: 2px;
         }
         
         .message-received {
             background-color: var(--message-received);
             margin-right: auto;
-            border-bottom-left-radius: 2px;
         }
         
         .message-system {
-            background-color: transparent;
+            background-color: var(--bg-color);
             color: var(--sender-color);
-            text-align: center;
             font-style: italic;
-            margin: 10px auto;
-            padding: 5px;
+            text-align: center;
+            margin: 8px auto;
         }
         
         .sender-info {
             display: flex;
             align-items: center;
-            margin-bottom: 5px;
-            font-size: 12px;
+            margin-bottom: 4px;
             color: var(--sender-color);
+            font-size: 12px;
         }
         
-        .sender-avatar {
+        .avatar {
             font-size: 16px;
-            margin-right: 5px;
+            margin-right: 6px;
         }
         
-        .message-time {
-            font-size: 10px;
-            text-align: right;
-            margin-top: 5px;
-            opacity: 0.8;
+        .input-area {
+            display: flex;
+            padding: 10px;
+            background-color: var(--header-color);
         }
         
-        .profile-container {
-            padding: 20px;
+        input {
             flex: 1;
-            overflow-y: auto;
+            padding: 8px;
+            background-color: var(--highlight-color);
+            border: none;
+            color: var(--text-color);
+            border-radius: 4px;
+            margin-right: 8px;
         }
         
-        .profile-avatar {
-            font-size: 60px;
-            text-align: center;
-            margin: 20px 0;
-            color: var(--accent-color);
+        .profile-content {
+            padding: 20px;
         }
         
-        .form-group {
+        .profile-field {
             margin-bottom: 15px;
         }
         
-        .form-group label {
+        .profile-field label {
             display: block;
             margin-bottom: 5px;
-            font-size: 14px;
         }
         
-        .form-group input, .form-group textarea {
+        .profile-field input, .profile-field textarea {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
+            background-color: var(--highlight-color);
             border: none;
-            border-radius: 2px;
-            background-color: #37474F;
             color: var(--text-color);
-            font-size: 14px;
+            border-radius: 4px;
         }
         
-        .form-group textarea {
-            height: 80px;
-            resize: none;
-        }
-        
-        .status-message {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 2px;
+        .avatar-large {
+            font-size: 40px;
             text-align: center;
-            font-size: 14px;
-        }
-        
-        .status-success {
-            background-color: rgba(0, 150, 136, 0.2);
-            color: var(--accent-color);
-        }
-        
-        .status-error {
-            background-color: rgba(244, 67, 54, 0.2);
-            color: #f44336;
-        }
-        
-        .hidden {
-            display: none !important;
-        }
-        
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-        }
-        
-        .modal-content {
-            background-color: var(--bg-color);
-            padding: 20px;
-            border-radius: 2px;
-            width: 80%;
-            max-width: 400px;
-        }
-        
-        .modal-title {
-            margin-top: 0;
-            color: var(--accent-color);
-        }
-        
-        .modal-buttons {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 20px;
-        }
-        
-        .modal-buttons button {
-            margin-left: 10px;
-        }
-        
-        .input-with-button {
-            display: flex;
-        }
-        
-        .input-with-button input {
-            flex: 1;
-            margin-right: 10px;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
-    <!-- Chat List View -->
-    <div id="chat-list-view">
+    <!-- Чат-лист -->
+    <div id="chat-list" class="container">
         <div class="header">
             <h1>DTTmanager</h1>
-            <button id="profile-btn" class="btn">Профиль</button>
+            <button onclick="showContainer('profile')">Профиль</button>
         </div>
-        
-        <div id="chat-list" class="chat-list">
-            <!-- Chat items will be added here dynamically -->
-        </div>
-        
-        <div class="input-area">
-            <button id="new-chat-btn" class="btn btn-accent" style="width: 100%;">Создать чат</button>
+        <div id="chats" class="chat-list"></div>
+        <div style="padding: 10px;">
+            <button onclick="createChatDialog()" style="width: 100%;">Создать чат</button>
         </div>
     </div>
     
-    <!-- Chat View -->
-    <div id="chat-view" class="hidden">
+    <!-- Чат -->
+    <div id="chat" class="container">
         <div class="header">
-            <button id="back-from-chat-btn" class="btn">Назад</button>
+            <button onclick="showContainer('chat-list')">Назад</button>
             <h1 id="chat-title">Чат</h1>
-            <button id="leave-chat-btn" class="btn">Покинуть</button>
+            <button id="leave-chat-btn" style="display: none;">Покинуть</button>
         </div>
-        
-        <div id="messages-container" class="messages-container">
-            <!-- Messages will be added here dynamically -->
-        </div>
-        
+        <div id="messages" class="messages-container"></div>
         <div class="input-area">
-            <input id="message-input" type="text" placeholder="Введите сообщение...">
-            <button id="send-btn" class="btn btn-accent">Отправить</button>
+            <input id="message-input" type="text" placeholder="Введите сообщение..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Отправить</button>
         </div>
     </div>
     
-    <!-- Profile View -->
-    <div id="profile-view" class="hidden">
+    <!-- Профиль -->
+    <div id="profile" class="container">
         <div class="header">
-            <button id="back-from-profile-btn" class="btn">Назад</button>
+            <button onclick="showContainer('chat-list')">Назад</button>
             <h1>Мой профиль</h1>
-            <div style="width: 60px;"></div> <!-- Spacer for alignment -->
         </div>
-        
-        <div class="profile-container">
-            <div class="profile-avatar" id="profile-avatar">😀</div>
-            <button id="change-avatar-btn" class="btn" style="width: 100%; margin-bottom: 20px;">Сменить аватар</button>
+        <div class="profile-content">
+            <div class="avatar-large" id="user-avatar">😀</div>
+            <button onclick="changeAvatar()">Сменить аватар</button>
             
-            <div id="status-message" class="status-message status-success">✅ Вы свободны от ограничений</div>
-            
-            <div class="form-group">
-                <label for="first-name">Имя:</label>
-                <input type="text" id="first-name" value="User">
+            <div class="profile-field">
+                <label>Имя:</label>
+                <input id="first-name" type="text">
             </div>
             
-            <div class="form-group">
-                <label for="last-name">Фамилия:</label>
-                <input type="text" id="last-name" value="">
+            <div class="profile-field">
+                <label>Фамилия:</label>
+                <input id="last-name" type="text">
             </div>
             
-            <div class="form-group">
-                <label for="username">Юзернейм:</label>
-                <div class="input-with-button">
-                    <input type="text" id="username" value="user1234">
-                    <button id="change-username-btn" class="btn">Изменить</button>
+            <div class="profile-field">
+                <label>Юзернейм:</label>
+                <div style="display: flex;">
+                    <input id="username" type="text" style="flex: 1;">
+                    <button onclick="changeUsername()" style="margin-left: 8px;">Изменить</button>
                 </div>
             </div>
             
-            <div class="form-group">
-                <label for="birthday">День рождения:</label>
-                <div class="input-with-button">
-                    <input type="text" id="birthday" placeholder="ГГГГ-ММ-ДД">
-                    <button id="change-birthday-btn" class="btn">Изменить</button>
+            <div class="profile-field">
+                <label>День рождения (ГГГГ-ММ-ДД):</label>
+                <div style="display: flex;">
+                    <input id="birthday" type="text" style="flex: 1;">
+                    <button onclick="changeBirthday()" style="margin-left: 8px;">Изменить</button>
                 </div>
             </div>
             
-            <div class="form-group">
-                <label for="bio">О себе:</label>
-                <textarea id="bio"></textarea>
+            <div class="profile-field">
+                <label>О себе:</label>
+                <textarea id="bio" rows="4"></textarea>
             </div>
             
-            <div class="form-group">
+            <div class="profile-field">
                 <label>ID:</label>
-                <input type="text" id="user-id" readonly style="background-color: #37474F; color: #B0BEC5;">
+                <input id="user-id" type="text" readonly>
             </div>
             
-            <button id="save-profile-btn" class="btn btn-accent" style="width: 100%; margin-top: 20px;">Сохранить изменения</button>
-        </div>
-    </div>
-    
-    <!-- New Chat Modal -->
-    <div id="new-chat-modal" class="modal hidden">
-        <div class="modal-content">
-            <h2 class="modal-title">Создать чат</h2>
-            <p>Выберите тип чата:</p>
-            <button id="public-chat-btn" class="btn" style="width: 100%; margin-bottom: 10px;">Публичный чат</button>
-            <button id="private-chat-btn" class="btn" style="width: 100%;">Приватный чат</button>
-        </div>
-    </div>
-    
-    <!-- Chat Name Modal -->
-    <div id="chat-name-modal" class="modal hidden">
-        <div class="modal-content">
-            <h2 class="modal-title" id="chat-name-modal-title">Название чата</h2>
-            <input type="text" id="chat-name-input" placeholder="Введите название чата" style="width: 100%;">
-            <div class="modal-buttons">
-                <button id="cancel-chat-btn" class="btn">Отмена</button>
-                <button id="confirm-chat-btn" class="btn btn-accent">Создать</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Username Change Modal -->
-    <div id="username-modal" class="modal hidden">
-        <div class="modal-content">
-            <h2 class="modal-title">Смена юзернейма</h2>
-            <p>Введите новый юзернейм (начинается с @, только латинские буквы и цифры):</p>
-            <input type="text" id="new-username-input" placeholder="@username" style="width: 100%;">
-            <div class="modal-buttons">
-                <button id="cancel-username-btn" class="btn">Отмена</button>
-                <button id="confirm-username-btn" class="btn btn-accent">Изменить</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Birthday Change Modal -->
-    <div id="birthday-modal" class="modal hidden">
-        <div class="modal-content">
-            <h2 class="modal-title">Смена дня рождения</h2>
-            <p>Введите новую дату рождения (ГГГГ-ММ-ДД):</p>
-            <input type="text" id="new-birthday-input" placeholder="2000-01-01" style="width: 100%;">
-            <div class="modal-buttons">
-                <button id="cancel-birthday-btn" class="btn">Отмена</button>
-                <button id="confirm-birthday-btn" class="btn btn-accent">Изменить</button>
-            </div>
+            <div id="restriction-status" style="color: var(--accent-color); margin: 15px 0;"></div>
+            
+            <button onclick="saveProfile()" style="width: 100%;">Сохранить изменения</button>
         </div>
     </div>
     
     <script>
-        // User data
-        const userData = {
-            id: generateUUID(),
-            first_name: "User",
-            last_name: "",
-            username: "user" + Math.floor(1000 + Math.random() * 9000),
-            bio: "",
-            birthday: null,
-            avatar: getRandomEmoji(),
-            active_chats: ["Общий чат"],
-            username_changes: [],
-            birthday_changes: [],
-            bans: 0,
-            blocked_until: null,
-            birthday_blocked_until: null
+        // Данные приложения
+        const appData = {
+            user: {
+                id: generateUUID(),
+                firstName: "User",
+                lastName: "",
+                username: "user" + Math.floor(1000 + Math.random() * 9000),
+                bio: "",
+                birthday: null,
+                avatar: randomAvatar(),
+                activeChats: ["Общий чат"],
+                usernameChanges: [],
+                birthdayChanges: [],
+                bans: 0,
+                blockedUntil: null,
+                birthdayBlockedUntil: null
+            },
+            chats: {
+                "Общий чат": {
+                    type: "public",
+                    messages: [
+                        {senderId: "system", text: "Добро пожаловать в общий чат!", time: "12:00"}
+                    ],
+                    members: []
+                }
+            },
+            privateChats: {},
+            currentChat: null,
+            usernames: new Set(),
+            online: false
         };
         
-        // Chats data
-        const chats = {
-            "Общий чат": {
-                type: "public",
-                messages: [
-                    {sender_id: "system", text: "Добро пожаловать в общий чат!", time: "12:00", timestamp: Date.now()}
-                ],
-                members: []
-            }
-        };
-        
-        const privateChats = {};
-        const usernames = new Set([userData.username]);
-        let currentChat = null;
-        let isPrivateChat = false;
-        
-        // DOM elements
-        const chatListView = document.getElementById('chat-list-view');
-        const chatView = document.getElementById('chat-view');
-        const profileView = document.getElementById('profile-view');
-        const chatList = document.getElementById('chat-list');
-        const messagesContainer = document.getElementById('messages-container');
-        const messageInput = document.getElementById('message-input');
-        const chatTitle = document.getElementById('chat-title');
-        const profileAvatar = document.getElementById('profile-avatar');
-        const firstNameInput = document.getElementById('first-name');
-        const lastNameInput = document.getElementById('last-name');
-        const usernameInput = document.getElementById('username');
-        const birthdayInput = document.getElementById('birthday');
-        const bioInput = document.getElementById('bio');
-        const userIdInput = document.getElementById('user-id');
-        const statusMessage = document.getElementById('status-message');
-        
-        // Buttons
-        const profileBtn = document.getElementById('profile-btn');
-        const backFromChatBtn = document.getElementById('back-from-chat-btn');
-        const backFromProfileBtn = document.getElementById('back-from-profile-btn');
-        const newChatBtn = document.getElementById('new-chat-btn');
-        const leaveChatBtn = document.getElementById('leave-chat-btn');
-        const sendBtn = document.getElementById('send-btn');
-        const changeAvatarBtn = document.getElementById('change-avatar-btn');
-        const changeUsernameBtn = document.getElementById('change-username-btn');
-        const changeBirthdayBtn = document.getElementById('change-birthday-btn');
-        const saveProfileBtn = document.getElementById('save-profile-btn');
-        
-        // Modals
-        const newChatModal = document.getElementById('new-chat-modal');
-        const publicChatBtn = document.getElementById('public-chat-btn');
-        const privateChatBtn = document.getElementById('private-chat-btn');
-        const chatNameModal = document.getElementById('chat-name-modal');
-        const chatNameInput = document.getElementById('chat-name-input');
-        const cancelChatBtn = document.getElementById('cancel-chat-btn');
-        const confirmChatBtn = document.getElementById('confirm-chat-btn');
-        const usernameModal = document.getElementById('username-modal');
-        const newUsernameInput = document.getElementById('new-username-input');
-        const cancelUsernameBtn = document.getElementById('cancel-username-btn');
-        const confirmUsernameBtn = document.getElementById('confirm-username-btn');
-        const birthdayModal = document.getElementById('birthday-modal');
-        const newBirthdayInput = document.getElementById('new-birthday-input');
-        const cancelBirthdayBtn = document.getElementById('cancel-birthday-btn');
-        const confirmBirthdayBtn = document.getElementById('confirm-birthday-btn');
-        
-        // Initialize
-        function init() {
+        // Инициализация при загрузке
+        window.onload = function() {
             loadData();
             updateChatList();
-            setupProfile();
-            setupEventListeners();
+            showContainer('chat-list');
+            updateProfileFields();
+        };
+        
+        // Генерация UUID
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
         }
         
+        // Случайный аватар
+        function randomAvatar() {
+            const avatars = ['😀', '😎', '🤖', '👽', '🐶', '🐱', '🦊'];
+            return avatars[Math.floor(Math.random() * avatars.length)];
+        }
+        
+        // Загрузка данных
         function loadData() {
             const savedData = localStorage.getItem('dtt_data');
             if (savedData) {
                 const data = JSON.parse(savedData);
                 
-                if (data.user_data) {
-                    Object.assign(userData, data.user_data);
-                    if (!userData.active_chats.includes("Общий чат")) {
-                        userData.active_chats.push("Общий чат");
-                    }
+                // Объединяем данные пользователя
+                appData.user = {...appData.user, ...data.user};
+                if (!appData.user.activeChats.includes("Общий чат")) {
+                    appData.user.activeChats.push("Общий чат");
                 }
                 
-                if (data.chats) {
-                    Object.assign(chats, data.chats);
-                    if (!chats["Общий чат"]) {
-                        chats["Общий чат"] = {
-                            type: "public",
-                            messages: [
-                                {sender_id: "system", text: "Добро пожаловать в общий чат!", time: "12:00", timestamp: Date.now()}
-                            ],
-                            members: []
-                        };
-                    }
+                // Объединяем чаты
+                appData.chats = {...appData.chats, ...data.chats};
+                if (!appData.chats["Общий чат"]) {
+                    appData.chats["Общий чат"] = {
+                        type: "public",
+                        messages: [
+                            {senderId: "system", text: "Добро пожаловать в общий чат!", time: "12:00"}
+                        ],
+                        members: []
+                    };
                 }
                 
-                if (data.private_chats) {
-                    Object.assign(privateChats, data.private_chats);
+                // Приватные чаты
+                if (data.privateChats) {
+                    appData.privateChats = data.privateChats;
                 }
                 
+                // Юзернеймы
                 if (data.usernames) {
-                    data.usernames.forEach(username => usernames.add(username));
+                    appData.usernames = new Set(data.usernames);
                 }
             }
             
-            if (!usernames.has(userData.username)) {
-                usernames.add(userData.username);
+            // Добавляем текущий юзернейм
+            if (!appData.usernames.has(appData.user.username)) {
+                appData.usernames.add(appData.user.username);
             }
+            
+            saveData();
         }
         
+        // Сохранение данных
         function saveData() {
             const data = {
-                user_data: userData,
-                chats: chats,
-                private_chats: privateChats,
-                usernames: Array.from(usernames)
+                user: appData.user,
+                chats: appData.chats,
+                privateChats: appData.privateChats,
+                usernames: Array.from(appData.usernames)
             };
             
             localStorage.setItem('dtt_data', JSON.stringify(data));
         }
         
-        function updateChatList() {
-            chatList.innerHTML = '';
+        // Показать контейнер
+        function showContainer(containerId) {
+            document.getElementById('chat-list').style.display = 'none';
+            document.getElementById('chat').style.display = 'none';
+            document.getElementById('profile').style.display = 'none';
             
-            userData.active_chats.forEach(chatName => {
-                if (chats[chatName]) {
-                    addChatToList(chatName, false);
+            document.getElementById(containerId).style.display = 'flex';
+            
+            if (containerId === 'profile') {
+                updateProfileFields();
+                checkRestrictions();
+            }
+        }
+        
+        // Обновление списка чатов
+        function updateChatList() {
+            const chatsList = document.getElementById('chats');
+            chatsList.innerHTML = '';
+            
+            appData.user.activeChats.forEach(chatName => {
+                if (appData.chats[chatName]) {
+                    const chatItem = document.createElement('div');
+                    chatItem.className = 'chat-item';
+                    chatItem.textContent = chatName;
+                    chatItem.onclick = () => openChat(chatName, false);
+                    chatsList.appendChild(chatItem);
                 } else {
-                    for (const code in privateChats) {
-                        if (privateChats[code].name === chatName) {
-                            addChatToList(chatName, true);
+                    for (const code in appData.privateChats) {
+                        if (appData.privateChats[code].name === chatName) {
+                            const chatItem = document.createElement('div');
+                            chatItem.className = 'chat-item';
+                            chatItem.textContent = `[Приватный] ${chatName}`;
+                            chatItem.onclick = () => openChat(code, true);
+                            chatsList.appendChild(chatItem);
                             break;
                         }
                     }
@@ -565,552 +399,362 @@
             });
         }
         
-        function addChatToList(chatName, isPrivate) {
-            const chatItem = document.createElement('div');
-            chatItem.className = 'chat-item';
-            chatItem.dataset.chatName = chatName;
-            chatItem.dataset.isPrivate = isPrivate;
+        // Открыть чат
+        function openChat(identifier, isPrivate) {
+            appData.currentChat = {identifier, isPrivate};
             
-            const chatTitle = document.createElement('h3');
-            chatTitle.textContent = isPrivate ? `[Приватный] ${chatName}` : chatName;
-            
-            const lastMessage = document.createElement('p');
-            let messages = [];
+            const chatTitle = document.getElementById('chat-title');
+            const leaveBtn = document.getElementById('leave-chat-btn');
             
             if (isPrivate) {
-                for (const code in privateChats) {
-                    if (privateChats[code].name === chatName) {
-                        messages = privateChats[code].messages;
-                        break;
-                    }
-                }
+                chatTitle.textContent = appData.privateChats[identifier].name;
+                leaveBtn.style.display = 'block';
+                leaveBtn.onclick = () => leaveChat(identifier, true);
             } else {
-                messages = chats[chatName].messages;
+                chatTitle.textContent = identifier;
+                leaveBtn.style.display = identifier !== "Общий чат" ? 'block' : 'none';
+                leaveBtn.onclick = () => leaveChat(identifier, false);
             }
             
-            if (messages.length > 0) {
-                const lastMsg = messages[messages.length - 1];
-                lastMessage.textContent = lastMsg.sender_id === userData.id ? 
-                    `Вы: ${lastMsg.text}` : 
-                    `${lastMsg.sender_name || 'Unknown'}: ${lastMsg.text}`;
-            } else {
-                lastMessage.textContent = "Нет сообщений";
-            }
-            
-            chatItem.appendChild(chatTitle);
-            chatItem.appendChild(lastMessage);
-            
-            chatItem.addEventListener('click', () => openChat(chatName, isPrivate));
-            
-            // Swipe to delete (for general chat)
-            if (chatName === "Общий чат") {
-                let startX, startY;
-                
-                chatItem.addEventListener('touchstart', (e) => {
-                    startX = e.touches[0].clientX;
-                    startY = e.touches[0].clientY;
-                });
-                
-                chatItem.addEventListener('touchend', (e) => {
-                    if (!startX || !startY) return;
-                    
-                    const endX = e.changedTouches[0].clientX;
-                    const endY = e.changedTouches[0].clientY;
-                    
-                    const diffX = endX - startX;
-                    const diffY = endY - startY;
-                    
-                    if (Math.abs(diffX) > 50 && Math.abs(diffY) < 30) {
-                        if (confirm("Вы уверены, что хотите удалить общий чат?")) {
-                            leaveChat(chatName);
-                        }
-                    }
-                    
-                    startX = null;
-                    startY = null;
-                });
-            }
-            
-            chatList.appendChild(chatItem);
+            showContainer('chat');
+            displayMessages(identifier, isPrivate);
         }
         
-        function openChat(chatName, isPrivate) {
-            currentChat = chatName;
-            isPrivateChat = isPrivate;
-            
-            chatTitle.textContent = isPrivate ? `[Приватный] ${chatName}` : chatName;
-            
-            if (chatName === "Общий чат") {
-                leaveChatBtn.style.display = 'none';
-            } else {
-                leaveChatBtn.style.display = 'block';
-            }
-            
-            showMessages();
-            showChatView();
-        }
-        
-        function showMessages() {
+        // Отобразить сообщения
+        function displayMessages(identifier, isPrivate) {
+            const messagesContainer = document.getElementById('messages');
             messagesContainer.innerHTML = '';
             
-            let messages = [];
-            if (isPrivateChat) {
-                for (const code in privateChats) {
-                    if (privateChats[code].name === currentChat) {
-                        messages = privateChats[code].messages;
-                        break;
-                    }
-                }
-            } else {
-                messages = chats[currentChat].messages;
-            }
+            const messages = isPrivate 
+                ? appData.privateChats[identifier].messages 
+                : appData.chats[identifier].messages;
             
             messages.forEach(msg => {
-                addMessageToChat(msg);
+                const messageDiv = document.createElement('div');
+                
+                if (msg.senderId === 'system') {
+                    messageDiv.className = 'message message-system';
+                    messageDiv.textContent = msg.text;
+                } else {
+                    const isSent = msg.senderId === appData.user.id;
+                    messageDiv.className = `message ${isSent ? 'message-sent' : 'message-received'}`;
+                    
+                    if (!isSent) {
+                        const senderInfo = document.createElement('div');
+                        senderInfo.className = 'sender-info';
+                        
+                        const avatarSpan = document.createElement('span');
+                        avatarSpan.className = 'avatar';
+                        avatarSpan.textContent = msg.avatar || '👤';
+                        
+                        const nameSpan = document.createElement('span');
+                        nameSpan.textContent = `${msg.senderName || 'Unknown'} @${msg.username || ''}`;
+                        
+                        senderInfo.appendChild(avatarSpan);
+                        senderInfo.appendChild(nameSpan);
+                        messageDiv.appendChild(senderInfo);
+                    }
+                    
+                    const textDiv = document.createElement('div');
+                    textDiv.textContent = msg.text;
+                    messageDiv.appendChild(textDiv);
+                    
+                    const timeDiv = document.createElement('div');
+                    timeDiv.style = 'font-size: 10px; text-align: right; margin-top: 4px;';
+                    timeDiv.textContent = msg.time || new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    messageDiv.appendChild(timeDiv);
+                }
+                
+                messagesContainer.appendChild(messageDiv);
             });
             
-            // Scroll to bottom
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
         
-        function addMessageToChat(msg) {
-            const isSent = msg.sender_id === userData.id;
-            const isSystem = msg.sender_id === "system";
-            
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${isSent ? 'message-sent' : (isSystem ? 'message-system' : 'message-received')}`;
-            
-            if (isSystem) {
-                messageDiv.textContent = msg.text;
-            } else {
-                if (!isSent) {
-                    const senderInfo = document.createElement('div');
-                    senderInfo.className = 'sender-info';
-                    
-                    const avatarSpan = document.createElement('span');
-                    avatarSpan.className = 'sender-avatar';
-                    avatarSpan.textContent = msg.avatar || '👤';
-                    
-                    const nameSpan = document.createElement('span');
-                    nameSpan.textContent = `${msg.sender_name || 'Unknown'} @${msg.username || 'unknown'}`;
-                    if (msg.is_birthday) {
-                        nameSpan.textContent += ' 🎂';
-                    }
-                    nameSpan.style.cursor = 'pointer';
-                    nameSpan.addEventListener('click', () => viewProfile(msg.sender_id));
-                    
-                    senderInfo.appendChild(avatarSpan);
-                    senderInfo.appendChild(nameSpan);
-                    messageDiv.appendChild(senderInfo);
-                }
-                
-                const textDiv = document.createElement('div');
-                textDiv.textContent = msg.text;
-                messageDiv.appendChild(textDiv);
-                
-                const timeDiv = document.createElement('div');
-                timeDiv.className = 'message-time';
-                const date = new Date(msg.timestamp || Date.now());
-                timeDiv.textContent = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-                messageDiv.appendChild(timeDiv);
-            }
-            
-            messagesContainer.appendChild(messageDiv);
-        }
-        
+        // Отправить сообщение
         function sendMessage() {
-            const text = messageInput.value.trim();
-            if (!text) return;
+            const input = document.getElementById('message-input');
+            const text = input.value.trim();
+            if (!text || !appData.currentChat) return;
             
-            const isBirthday = checkIfBirthday();
+            const isBirthday = checkBirthday();
             
             const newMsg = {
-                sender_id: userData.id,
-                sender_name: `${userData.first_name} ${userData.last_name}`.trim(),
-                username: userData.username,
-                avatar: userData.avatar,
+                senderId: appData.user.id,
+                senderName: `${appData.user.firstName} ${appData.user.lastName}`.trim() || "User",
+                username: appData.user.username,
+                avatar: appData.user.avatar,
                 text: text,
                 time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
                 timestamp: Date.now(),
-                is_birthday: isBirthday
+                isBirthday: isBirthday
             };
             
-            if (isPrivateChat) {
-                for (const code in privateChats) {
-                    if (privateChats[code].name === currentChat) {
-                        privateChats[code].messages.push(newMsg);
-                        break;
-                    }
-                }
+            if (appData.currentChat.isPrivate) {
+                appData.privateChats[appData.currentChat.identifier].messages.push(newMsg);
             } else {
-                chats[currentChat].messages.push(newMsg);
+                appData.chats[appData.currentChat.identifier].messages.push(newMsg);
             }
             
             saveData();
-            showMessages();
-            updateChatList();
-            messageInput.value = '';
+            displayMessages(appData.currentChat.identifier, appData.currentChat.isPrivate);
+            input.value = '';
+            input.focus();
         }
         
-        function checkIfBirthday() {
-            if (!userData.birthday) return false;
+        // Проверка дня рождения
+        function checkBirthday() {
+            if (!appData.user.birthday) return false;
             
-            try {
-                const today = new Date();
-                const bdayParts = userData.birthday.split('-');
-                const bday = new Date(bdayParts[0], bdayParts[1] - 1, bdayParts[2]);
-                
-                return today.getMonth() === bday.getMonth() && today.getDate() === bday.getDate();
-            } catch (e) {
-                return false;
+            const today = new Date();
+            const bday = new Date(appData.user.birthday);
+            
+            return today.getMonth() === bday.getMonth() && today.getDate() === bday.getDate();
+        }
+        
+        // Обработка нажатия Enter
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
             }
         }
         
-        function leaveChat(chatName) {
-            const index = userData.active_chats.indexOf(chatName);
+        // Покинуть чат
+        function leaveChat(identifier, isPrivate) {
+            let chatName;
+            
+            if (isPrivate) {
+                chatName = appData.privateChats[identifier].name;
+            } else {
+                chatName = identifier;
+            }
+            
+            const index = appData.user.activeChats.indexOf(chatName);
             if (index !== -1) {
-                userData.active_chats.splice(index, 1);
+                appData.user.activeChats.splice(index, 1);
                 saveData();
-                showChatListView();
-                alert(`Вы покинули чат '${chatName}'`);
+                showContainer('chat-list');
+                updateChatList();
+                alert(`Вы покинули чат "${chatName}"`);
             }
         }
         
-        function setupProfile() {
-            profileAvatar.textContent = userData.avatar;
-            firstNameInput.value = userData.first_name;
-            lastNameInput.value = userData.last_name;
-            usernameInput.value = userData.username;
-            birthdayInput.value = userData.birthday || '';
-            bioInput.value = userData.bio;
-            userIdInput.value = userData.id;
+        // Диалог создания чата
+        function createChatDialog() {
+            const type = confirm("Создать приватный чат? (OK - приватный, Отмена - публичный)");
+            const name = prompt("Введите название чата:");
             
-            checkRestrictions();
-        }
-        
-        function saveProfile() {
-            userData.first_name = firstNameInput.value;
-            userData.last_name = lastNameInput.value;
-            userData.bio = bioInput.value;
+            if (!name) return;
+            
+            if (type) {
+                const code = generateChatCode();
+                appData.privateChats[code] = {
+                    name: name,
+                    messages: [],
+                    members: [appData.user.id]
+                };
+                appData.user.activeChats.push(name);
+                alert(`Приватный чат создан!\nКод для входа: ${code}\nПоделитесь этим кодом с участниками.`);
+            } else {
+                if (!appData.chats[name]) {
+                    appData.chats[name] = {
+                        type: "public",
+                        messages: [],
+                        members: [appData.user.id]
+                    };
+                }
+                appData.user.activeChats.push(name);
+            }
             
             saveData();
-            alert('Изменения профиля сохранены');
+            updateChatList();
         }
         
+        // Генерация кода чата
+        function generateChatCode() {
+            return Math.random().toString(36).substring(2, 8);
+        }
+        
+        // Обновление полей профиля
+        function updateProfileFields() {
+            document.getElementById('first-name').value = appData.user.firstName;
+            document.getElementById('last-name').value = appData.user.lastName;
+            document.getElementById('username').value = appData.user.username;
+            document.getElementById('birthday').value = appData.user.birthday || "ГГГГ-ММ-ДД";
+            document.getElementById('bio').value = appData.user.bio;
+            document.getElementById('user-id').value = appData.user.id;
+            document.getElementById('user-avatar').textContent = appData.user.avatar;
+        }
+        
+        // Смена аватара
         function changeAvatar() {
             const avatars = ['😀', '😎', '🤖', '👽', '🐶', '🐱', '🦊', '🐼', '🦄', '🐙', '🍕', '🎮', '🚀'];
             const newAvatar = avatars[Math.floor(Math.random() * avatars.length)];
-            userData.avatar = newAvatar;
-            profileAvatar.textContent = newAvatar;
+            appData.user.avatar = newAvatar;
+            document.getElementById('user-avatar').textContent = newAvatar;
             saveData();
         }
         
+        // Смена юзернейма
         function changeUsername() {
-            // Check if user is blocked
-            if (userData.blocked_until) {
-                const blockTime = new Date(userData.blocked_until);
-                if (new Date() < blockTime) {
-                    const remaining = blockTime - new Date();
-                    const hours = Math.floor(remaining / (1000 * 60 * 60));
-                    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-                    
-                    alert(`Вы не можете сменить юзернейм. Осталось: ${hours} ч. ${minutes} мин.`);
-                    return;
-                }
-            }
+            if (checkBlocked('username')) return;
             
-            newUsernameInput.value = `@${userData.username}`;
-            usernameModal.classList.remove('hidden');
-        }
-        
-        function confirmUsernameChange() {
-            const newUsername = newUsernameInput.value.trim();
+            const newUsername = prompt("Введите новый юзернейм (начинается с @, только латинские буквы и цифры):", `@${appData.user.username}`);
+            if (!newUsername) return;
             
             if (!newUsername.startsWith('@')) {
-                alert('Юзернейм должен начинаться с @');
+                alert("Юзернейм должен начинаться с @");
                 return;
             }
             
             const cleanUsername = newUsername.substring(1);
             if (!/^[a-zA-Z0-9]+$/.test(cleanUsername)) {
-                alert('Юзернейм должен содержать только латинские буквы и цифры');
+                alert("Юзернейм должен содержать только латинские буквы и цифры");
                 return;
             }
             
-            // Check if username is already taken
-            if (usernames.has(cleanUsername) {
-                alert('Этот юзернейм уже занят');
+            if (appData.usernames.has(cleanUsername) && cleanUsername !== appData.user.username) {
+                alert("Этот юзернейм уже занят");
                 return;
             }
             
-            // Check changes in last 24 hours
             const now = new Date();
-            const changesLast24h = userData.username_changes.filter(changeTime => {
-                return (now - new Date(changeTime)) < 24 * 60 * 60 * 1000;
+            const changesLast24h = appData.user.usernameChanges.filter(t => {
+                const changeTime = new Date(t);
+                return (now - changeTime) < 24 * 60 * 60 * 1000;
             });
             
             if (changesLast24h.length >= 10) {
-                // Block for 24 hours
                 const blockUntil = new Date(now.getTime() + 24 * 60 * 60 * 1000);
-                userData.blocked_until = blockUntil.toISOString();
-                userData.bans = (userData.bans || 0) + 1;
+                appData.user.blockedUntil = blockUntil.toISOString();
+                appData.user.bans = (appData.user.bans || 0) + 1;
                 
-                if (userData.bans >= 30) {
-                    alert('Вы были забанены за злоупотребление сменой юзернейма');
-                    window.close();
+                if (appData.user.bans >= 30) {
+                    alert("Вы были забанены за злоупотребление сменой юзернейма");
+                    window.location.reload();
                     return;
                 }
                 
-                alert('Вы слишком часто меняете юзернейм. Блокировка на 24 часа.');
+                alert("Вы слишком часто меняете юзернейм. Блокировка на 24 часа.");
                 saveData();
                 checkRestrictions();
-                usernameModal.classList.add('hidden');
                 return;
             }
             
-            // Update username
-            const oldUsername = userData.username;
-            usernames.delete(oldUsername);
-            userData.username = cleanUsername;
-            usernames.add(cleanUsername);
-            usernameInput.value = cleanUsername;
+            appData.usernames.delete(appData.user.username);
+            appData.user.username = cleanUsername;
+            appData.usernames.add(cleanUsername);
+            document.getElementById('username').value = cleanUsername;
             
-            // Record change time
-            userData.username_changes.push(now.toISOString());
+            appData.user.usernameChanges.push(now.toISOString());
             saveData();
+            alert("Юзернейм успешно изменен");
             checkRestrictions();
-            
-            alert('Юзернейм успешно изменен');
-            usernameModal.classList.add('hidden');
         }
         
+        // Смена дня рождения
         function changeBirthday() {
-            // Check if user is blocked
-            if (userData.birthday_blocked_until) {
-                const blockTime = new Date(userData.birthday_blocked_until);
-                if (new Date() < blockTime) {
-                    const remaining = blockTime - new Date();
-                    const hours = Math.floor(remaining / (1000 * 60 * 60));
-                    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-                    
-                    alert(`Вы не можете сменить дату рождения. Осталось: ${hours} ч. ${minutes} мин.`);
-                    return;
-                }
-            }
+            if (checkBlocked('birthday')) return;
             
-            newBirthdayInput.value = userData.birthday || '2000-01-01';
-            birthdayModal.classList.remove('hidden');
-        }
-        
-        function confirmBirthdayChange() {
-            const newBirthday = newBirthdayInput.value.trim();
+            const newBirthday = prompt("Введите новую дату рождения (ГГГГ-ММ-ДД):", appData.user.birthday || "2000-01-01");
+            if (!newBirthday) return;
             
-            // Validate date format
             if (!/^\d{4}-\d{2}-\d{2}$/.test(newBirthday)) {
-                alert('Неверный формат даты. Используйте ГГГГ-ММ-ДД');
+                alert("Неверный формат даты. Используйте ГГГГ-ММ-ДД");
                 return;
             }
             
-            // Check changes in last 24 hours
             const now = new Date();
-            const changesLast24h = userData.birthday_changes.filter(changeTime => {
-                return (now - new Date(changeTime)) < 24 * 60 * 60 * 1000;
+            const changesLast24h = appData.user.birthdayChanges.filter(t => {
+                const changeTime = new Date(t);
+                return (now - changeTime) < 24 * 60 * 60 * 1000;
             });
             
             if (changesLast24h.length >= 10) {
-                // Block for 24 hours
                 const blockUntil = new Date(now.getTime() + 24 * 60 * 60 * 1000);
-                userData.birthday_blocked_until = blockUntil.toISOString();
-                userData.bans = (userData.bans || 0) + 1;
+                appData.user.birthdayBlockedUntil = blockUntil.toISOString();
+                appData.user.bans = (appData.user.bans || 0) + 1;
                 
-                if (userData.bans >= 30) {
-                    alert('Вы были забанены за злоупотребление сменой даты рождения');
-                    window.close();
+                if (appData.user.bans >= 30) {
+                    alert("Вы были забанены за злоупотребление сменой даты рождения");
+                    window.location.reload();
                     return;
                 }
                 
-                alert('Вы слишком часто меняете дату рождения. Блокировка на 24 часа.');
+                alert("Вы слишком часто меняете дату рождения. Блокировка на 24 часа.");
                 saveData();
                 checkRestrictions();
-                birthdayModal.classList.add('hidden');
                 return;
             }
             
-            // Update birthday
-            userData.birthday = newBirthday;
-            birthdayInput.value = newBirthday;
+            appData.user.birthday = newBirthday;
+            document.getElementById('birthday').value = newBirthday;
             
-            // Record change time
-            userData.birthday_changes.push(now.toISOString());
+            appData.user.birthdayChanges.push(now.toISOString());
             saveData();
+            alert("Дата рождения успешно изменена");
             checkRestrictions();
-            
-            alert('Дата рождения успешно изменена');
-            birthdayModal.classList.add('hidden');
         }
         
+        // Проверка блокировки
+        function checkBlocked(type) {
+            const now = new Date();
+            const blockField = type === 'username' ? 'blockedUntil' : 'birthdayBlockedUntil';
+            
+            if (appData.user[blockField]) {
+                const blockTime = new Date(appData.user[blockField]);
+                if (now < blockTime) {
+                    const remaining = blockTime - now;
+                    const hours = Math.floor(remaining / (60 * 60 * 1000));
+                    const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000);
+                    alert(`Вы не можете сменить ${type === 'username' ? 'юзернейм' : 'дату рождения'}. Осталось: ${hours} ч. ${minutes} мин.`);
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        // Проверка ограничений
         function checkRestrictions() {
             const now = new Date();
             let status = "✅ Вы свободны от ограничений";
-            let statusClass = "status-success";
             
-            // Check username block
-            if (userData.blocked_until) {
-                const blockTime = new Date(userData.blocked_until);
+            if (appData.user.blockedUntil) {
+                const blockTime = new Date(appData.user.blockedUntil);
                 if (now < blockTime) {
                     const remaining = blockTime - now;
-                    const hours = Math.floor(remaining / (1000 * 60 * 60));
-                    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-                    
+                    const hours = Math.floor(remaining / (60 * 60 * 1000));
+                    const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000);
                     status = `⛔ Изменение юзернейма заблокировано. Осталось: ${hours} ч. ${minutes} мин.`;
-                    statusClass = "status-error";
                 }
             }
             
-            // Check birthday block
-            if (userData.birthday_blocked_until) {
-                const blockTime = new Date(userData.birthday_blocked_until);
+            if (appData.user.birthdayBlockedUntil) {
+                const blockTime = new Date(appData.user.birthdayBlockedUntil);
                 if (now < blockTime) {
                     const remaining = blockTime - now;
-                    const hours = Math.floor(remaining / (1000 * 60 * 60));
-                    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-                    
-                    if (statusClass === "status-error") {
+                    const hours = Math.floor(remaining / (60 * 60 * 1000));
+                    const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000);
+                    if (status.includes("⛔")) {
                         status += `\n⛔ Изменение дня рождения заблокировано. Осталось: ${hours} ч. ${minutes} мин.`;
                     } else {
                         status = `⛔ Изменение дня рождения заблокировано. Осталось: ${hours} ч. ${minutes} мин.`;
-                        statusClass = "status-error";
                     }
                 }
             }
             
-            statusMessage.textContent = status;
-            statusMessage.className = `status-message ${statusClass}`;
+            document.getElementById('restriction-status').textContent = status;
         }
         
-        function viewProfile(userId) {
-            alert(`Просмотр профиля пользователя с ID: ${userId}\n\nВ реальном приложении здесь бы загружались данные пользователя`);
-        }
-        
-        function createChat(isPrivate) {
-            newChatModal.classList.add('hidden');
-            chatNameModal.classList.remove('hidden');
-            document.getElementById('chat-name-modal-title').textContent = isPrivate ? 'Создать приватный чат' : 'Создать публичный чат';
+        // Сохранение профиля
+        function saveProfile() {
+            appData.user.firstName = document.getElementById('first-name').value;
+            appData.user.lastName = document.getElementById('last-name').value;
+            appData.user.bio = document.getElementById('bio').value;
             
-            confirmChatBtn.onclick = function() {
-                const chatName = chatNameInput.value.trim();
-                if (!chatName) return;
-                
-                if (isPrivate) {
-                    const code = generateChatCode();
-                    privateChats[code] = {
-                        name: chatName,
-                        messages: [],
-                        members: [userData.id]
-                    };
-                    userData.active_chats.push(chatName);
-                    
-                    alert(`Приватный чат создан\nКод для входа: ${code}\nПоделитесь этим кодом с участниками.`);
-                } else {
-                    if (!chats[chatName]) {
-                        chats[chatName] = {
-                            type: "public",
-                            messages: [],
-                            members: [userData.id]
-                        };
-                    }
-                    userData.active_chats.push(chatName);
-                }
-                
-                saveData();
-                updateChatList();
-                chatNameInput.value = '';
-                chatNameModal.classList.add('hidden');
-            };
+            saveData();
+            alert("Изменения профиля сохранены");
         }
-        
-        function generateChatCode() {
-            const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-            let result = '';
-            for (let i = 0; i < 6; i++) {
-                result += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return result;
-        }
-        
-        function generateUUID() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                const r = Math.random() * 16 | 0;
-                const v = c === 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        }
-        
-        function getRandomEmoji() {
-            const emojis = ['😀', '😎', '🤖', '👽', '🐶', '🐱', '🦊'];
-            return emojis[Math.floor(Math.random() * emojis.length)];
-        }
-        
-        // View management
-        function showChatListView() {
-            chatView.classList.add('hidden');
-            profileView.classList.add('hidden');
-            chatListView.classList.remove('hidden');
-            updateChatList();
-        }
-        
-        function showChatView() {
-            chatListView.classList.add('hidden');
-            profileView.classList.add('hidden');
-            chatView.classList.remove('hidden');
-        }
-        
-        function showProfileView() {
-            chatListView.classList.add('hidden');
-            chatView.classList.add('hidden');
-            profileView.classList.remove('hidden');
-        }
-        
-        // Event listeners
-        function setupEventListeners() {
-            // Navigation
-            profileBtn.addEventListener('click', showProfileView);
-            backFromChatBtn.addEventListener('click', showChatListView);
-            backFromProfileBtn.addEventListener('click', showChatListView);
-            
-            // Chat actions
-            newChatBtn.addEventListener('click', () => newChatModal.classList.remove('hidden'));
-            leaveChatBtn.addEventListener('click', () => leaveChat(currentChat));
-            sendBtn.addEventListener('click', sendMessage);
-            messageInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') sendMessage();
-            });
-            
-            // Profile actions
-            changeAvatarBtn.addEventListener('click', changeAvatar);
-            changeUsernameBtn.addEventListener('click', changeUsername);
-            changeBirthdayBtn.addEventListener('click', changeBirthday);
-            saveProfileBtn.addEventListener('click', saveProfile);
-            
-            // Modal buttons
-            publicChatBtn.addEventListener('click', () => createChat(false));
-            privateChatBtn.addEventListener('click', () => createChat(true));
-            cancelChatBtn.addEventListener('click', () => chatNameModal.classList.add('hidden'));
-            cancelUsernameBtn.addEventListener('click', () => usernameModal.classList.add('hidden'));
-            cancelBirthdayBtn.addEventListener('click', () => birthdayModal.classList.add('hidden'));
-            confirmUsernameBtn.addEventListener('click', confirmUsernameChange);
-            confirmBirthdayBtn.addEventListener('click', confirmBirthdayChange);
-            
-            // Close modals when clicking outside
-            document.addEventListener('click', (e) => {
-                if (e.target.classList.contains('modal')) {
-                    e.target.classList.add('hidden');
-                }
-            });
-        }
-        
-        // Start the app
-        init();
     </script>
 </body>
 </html>
